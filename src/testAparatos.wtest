@@ -1,0 +1,171 @@
+import aparatos.*
+import pacientes.*
+
+describe "Test de Leonardo"{
+	
+	const m1 = new Magneto()
+	
+	const b1 = new Bicicleta()
+	
+	const minit1 = new Minitramp()
+	
+	const leonardo = new Paciente(edad = 40, nivelDeDolor = 10, nivelDeFortaleza = 20, aparatosAsignados = [b1,minit1,b1,m1])
+	
+	test "Leonardo debe poder usar los 3 aparatos"{
+		assert.that(leonardo.puedeUsar(m1))
+		assert.that(leonardo.puedeUsar(b1))
+		assert.that(leonardo.puedeUsar(minit1))
+	}
+	
+	test "El nivel de dolor de leonardo baja a 9 "{
+		leonardo.usarAparato(m1)
+		assert.equals(9,leonardo.nivelDeDolor())
+	}
+	
+	test "El nivel de dolor de leonardo baja a 6"{
+		leonardo.usarAparato(b1)
+		assert.equals(6,leonardo.nivelDeDolor())
+	}
+	
+	test "El nivel de fortaleza de leonardo debe ser 23"{
+		leonardo.usarAparato(b1)
+		assert.equals(23,leonardo.nivelDeFortaleza())
+	}
+	
+	test "El nivel de fortaleza de leonardo debe ser 24"{
+		leonardo.usarAparato(minit1)
+		assert.equals(24,leonardo.nivelDeFortaleza())
+	}
+	
+	test "Leonardo debe de poder hacer la rutina asignada"{
+		assert.that(leonardo.puedeHacerLaRutina())
+	}
+	
+	test "El nivel de dolor de leonardo debe ser 1.8"{
+		leonardo.hacerSesionCompleta()
+		assert.equals(1.8,leonardo.nivelDeDolor())
+	}
+	
+	test "El nivel de fortaleza de leonardo debe ser 30"{
+		leonardo.hacerSesionCompleta()
+		assert.equals(30,leonardo.nivelDeFortaleza())
+	}
+	
+	
+}
+
+describe "Test de Milena"{
+	
+	const m1 = new Magneto()
+	
+	const b1 = new Bicicleta()
+	
+	const milena = new Paciente(edad = 3, nivelDeDolor = 30, nivelDeFortaleza = 50,aparatosAsignados = [m1,b1])
+	
+	test "Milenda debe poder usar solo el magneto"{
+		assert.that(milena.puedeUsar(m1))
+	}
+	
+	test "El nivel de dolor de milena debe ser 27"{
+		milena.usarAparato(m1)
+		assert.equals(27,milena.nivelDeDolor())
+	}
+	
+	test "Milena no debe de poder hacer la rutina asignada"{
+		assert.notThat(milena.puedeHacerLaRutina())
+	}
+	
+}
+
+describe "Test de Nicolas"{
+	
+	const m1 = new Magneto()
+	
+	const b1 = new Bicicleta()
+	
+	const minit1 = new Minitramp()
+	
+	const nicolas = new PacienteResistente(edad = 40, nivelDeDolor = 10, nivelDeFortaleza = 20,aparatosAsignados = [b1,minit1,b1,m1])
+	
+	test "Nicolas debe de poder hacer la rutina asignada"{
+		assert.that(nicolas.puedeHacerLaRutina())
+	}
+	
+	test "El nivel de dolor de nicolas debe ser de 1.8"{
+		nicolas.hacerSesionCompleta()
+		assert.equals(1.8,nicolas.nivelDeDolor())
+	}
+	
+	test "El nivel de fortaleza de nicolas debe ser 34"{
+		nicolas.hacerSesionCompleta()
+		assert.equals(34,nicolas.nivelDeFortaleza())
+	}
+}
+
+describe "Test de Victoria"{
+	
+	const m1 = new Magneto()
+	
+	const b1 = new Bicicleta()
+	
+	const minit1 = new Minitramp()
+	
+	const victoria = new PacienteCaprichoso(edad = 30, nivelDeDolor = 10, nivelDeFortaleza = 40,aparatosAsignados = [b1,minit1,b1,m1])
+	
+	test "Victoria debe de poder hacer la rutina asignada"{
+		assert.that(victoria.puedeHacerLaRutina())
+	}
+	
+}
+
+describe "Test de Julian"{
+	
+	const m1 = new Magneto(colorDelAparato = "verde")
+	
+	const b1 = new Bicicleta(colorDelAparato = "rojo")
+	
+	const b2 = new Bicicleta()
+	
+	const julian = new PacienteCaprichoso(edad = 20, nivelDeDolor = 54, nivelDeFortaleza = 50,aparatosAsignados = [b1,m1,b2])
+	
+	test "Julian debe de poder hacer la rutina asignada"{
+		assert.that(julian.puedeHacerLaRutina())
+	}
+	
+	test "El nivel de dolor de julian debe ser de 29.3"{
+		julian.hacerSesionCompleta()
+		assert.equals(29.3,julian.nivelDeDolor())
+	}
+	
+	test "El nivel de fortaleza de julian debe ser 62"{
+		julian.hacerSesionCompleta()
+		assert.equals(62,julian.nivelDeFortaleza())
+	}
+}
+
+describe "Test de Zoe"{
+	
+	const m1 = new Magneto()
+	
+	const b1 = new Bicicleta()
+	
+	const minit1 = new Minitramp()
+	
+	const zoe = new PacienteDeRapidaRecuperacion(edad = 50, nivelDeDolor = 14, nivelDeFortaleza = 40,aparatosAsignados = [b1,minit1,b1,m1])
+	
+	test "Zoe debe de poder hacer la rutina asignada"{
+		assert.that(zoe.puedeHacerLaRutina())
+	}
+	
+	test "El nivel de dolor debe ser 3.4"{
+		recuperacion.nivelDeRecuperacion(2)
+		zoe.hacerSesionCompleta()
+		assert.equals(3.4,zoe.nivelDeDolor())
+	}
+	
+	test "La fortaleza de zoe sube a 51 "{
+		recuperacion.nivelDeRecuperacion(2)
+		zoe.hacerSesionCompleta()
+		assert.equals(51,zoe.nivelDeFortaleza())
+	}
+}
