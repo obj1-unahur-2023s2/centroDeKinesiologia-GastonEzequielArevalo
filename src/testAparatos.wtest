@@ -3,7 +3,7 @@ import pacientes.*
 
 describe "Test de Leonardo"{
 	
-	const m1 = new Magneto()
+	const m1 = new Magneto(puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta()
 	
@@ -56,7 +56,7 @@ describe "Test de Leonardo"{
 
 describe "Test de Milena"{
 	
-	const m1 = new Magneto()
+	const m1 = new Magneto(puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta()
 	
@@ -79,7 +79,7 @@ describe "Test de Milena"{
 
 describe "Test de Nicolas"{
 	
-	const m1 = new Magneto()
+	const m1 = new Magneto(puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta()
 	
@@ -104,7 +104,7 @@ describe "Test de Nicolas"{
 
 describe "Test de Victoria"{
 	
-	const m1 = new Magneto()
+	const m1 = new Magneto(puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta()
 	
@@ -120,7 +120,7 @@ describe "Test de Victoria"{
 
 describe "Test de Julian"{
 	
-	const m1 = new Magneto(colorDelAparato = "verde")
+	const m1 = new Magneto(colorDelAparato = "verde", puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta(colorDelAparato = "rojo")
 	
@@ -145,7 +145,7 @@ describe "Test de Julian"{
 
 describe "Test de Zoe"{
 	
-	const m1 = new Magneto()
+	const m1 = new Magneto(puntosDeInmantacion = 100)
 	
 	const b1 = new Bicicleta()
 	

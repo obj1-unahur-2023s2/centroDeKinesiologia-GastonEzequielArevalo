@@ -1,0 +1,49 @@
+import centroDeKinesiologia.*
+import aparatos.*
+import pacientes.*
+
+describe "Test de centro de kinesiologia"{
+	
+	const m1 = new Magneto(colorDelAparato = "verde", puntosDeInmantacion = 100)
+	
+	const b1 = new Bicicleta(colorDelAparato = "rojo")
+	
+	const minit1 = new Minitramp(colorDelAparato = "rojo")
+	
+	const leonardo = new Paciente(edad = 40, nivelDeDolor = 10, nivelDeFortaleza = 20, aparatosAsignados = [b1,minit1,b1,m1])
+	
+	const milena = new Paciente(edad = 3, nivelDeDolor = 30, nivelDeFortaleza = 50,aparatosAsignados = [m1,b1])
+	
+	const nicolas = new PacienteResistente(edad = 40, nivelDeDolor = 10, nivelDeFortaleza = 20,aparatosAsignados = [b1,minit1,b1,m1])
+	
+	const victoria = new PacienteCaprichoso(edad = 30, nivelDeDolor = 10, nivelDeFortaleza = 40,aparatosAsignados = [b1,minit1,b1,m1])
+	
+	test "Los colores deben ser verde y rojo"{
+		centroDeKinesiologia.agregarAparato(m1)
+		centroDeKinesiologia.agregarAparato(b1)
+		centroDeKinesiologia.agregarAparato(minit1)
+		
+		assert.equals(#{"verde","rojo"}, centroDeKinesiologia.coloresDeLosAparatos())
+	}
+	
+	test "Los pacientes menores de 8 anios es milena"{
+		centroDeKinesiologia.agregarPaciente(leonardo)
+		centroDeKinesiologia.agregarPaciente(milena)
+		centroDeKinesiologia.agregarPaciente(nicolas)
+		centroDeKinesiologia.agregarPaciente(victoria)
+		
+		assert.equals([milena], centroDeKinesiologia.pacientesMenoresDe8Anios())
+	}
+	
+	test "La cantidad de pacientes que no pueden hacer la sesion son  "{
+		centroDeKinesiologia.agregarPaciente(leonardo)
+		centroDeKinesiologia.agregarPaciente(milena)
+		centroDeKinesiologia.agregarPaciente(nicolas)
+		centroDeKinesiologia.agregarPaciente(victoria)
+		
+		assert.equals(1, centroDeKinesiologia.cantidadDePacientesQueNoPuedenCumplirLaSesion())
+	}
+	
+	
+	
+}
